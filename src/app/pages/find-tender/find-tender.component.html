@@ -1,0 +1,81 @@
+<div nz-row nzGutter="16">
+  <nz-col nzSpan="6">
+    <input type="text" nz-input placeholder="Quick search">
+  </nz-col>
+  <nz-col nzSpan="6">
+    <button nz-button nzType="primary" (click)="filtersVisible = !filtersVisible">{{filtersVisible ? 'Hide filters' : 'Show filters'}}</button>
+  </nz-col>
+  <nz-col nzSpan="6">
+    <nz-select nzMode="default" nzPlaceHolder="Select status" class="full-width">
+      <nz-option *ngFor="let option of statuses" [nzLabel]="option" [nzValue]="option" >
+      </nz-option>
+    </nz-select>
+  </nz-col>
+  <nz-col nzSpan="6">
+    <button nz-button nz-dropdown [nzDropdownMenu]="menuSelectColumns" nzClickHide="false">
+      Show fields
+    </button>
+
+    <nz-dropdown-menu #menuSelectColumns="nzDropdownMenu">
+      <ul nz-menu>
+        <li nz-menu-item><label nz-checkbox [nzChecked]="true" [(ngModel)]="showFields.transportMode">Transport Mode</label></li>
+        <li nz-menu-item><label nz-checkbox [nzChecked]="true" [(ngModel)]="showFields.businessOwner">Business owner</label></li>
+        <li nz-menu-item><label nz-checkbox [nzChecked]="true" [(ngModel)]="showFields.created">Created</label></li>
+        <li nz-menu-item><label nz-checkbox [nzChecked]="true" [(ngModel)]="showFields.launched">Launched</label></li>
+      </ul>
+    </nz-dropdown-menu>
+  </nz-col>
+</div>
+
+<div *ngIf="filtersVisible" nz-row nzGutter="16" class="top-margin">
+  <nz-col nzSpan="6">
+    <input nz-input type="text" placeholder="Filter1">
+  </nz-col>
+  <nz-col nzSpan="6">
+    <input nz-input type="text" placeholder="Filter2">
+  </nz-col>
+  <nz-col nzSpan="6">
+    <input nz-input type="text" placeholder="Filter3">
+  </nz-col>
+  <nz-col nzSpan="6">
+    <input nz-input type="text" placeholder="Filter4">
+  </nz-col>
+</div>
+
+<div class="top-margin">
+  <nz-table [nzData]="tenders" #table>
+    <thead>
+      <tr>
+        <th>Title </th>
+        <th>Tender #</th>
+        <th>Status</th>
+        <th *ngIf="showFields.transportMode">Transport mode</th>
+        <th>Tender owner</th>
+        <th *ngIf="showFields.businessOwner">Business owner</th>
+        <th *ngIf="showFields.created">Created</th>
+        <th *ngIf="showFields.launched">Launched</th>
+        <th>Round deadline</th>
+        <th>Customer</th>
+        <th>Customer deadline</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tender of table.data" (click)="goToTenderDetails(tender.id)">
+        <td >{{tender.title}}</td>
+        <td>{{tender.id}}</td>
+        <td>{{tender.status}}</td>
+        <td *ngIf="showFields.transportMode">{{tender.transportMode}}</td>
+        <td>{{tender.tenderOwner}}</td>
+        <td *ngIf="showFields.businessOwner">{{tender.businessOwner}}</td>
+        <td *ngIf="showFields.created">{{tender.created}}</td>
+        <td *ngIf="showFields.launched">{{tender.launched}}</td>
+        <td>{{tender.deadline}}</td>
+        <td>{{tender.customer}}</td>
+        <td>{{tender.customerDeadline}}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
+
+<nz-card></nz-card>
+<nz-row></nz-row>

@@ -1,0 +1,18 @@
+<nz-card>
+  <nz-row [nzGutter]="[16, 24]">
+    <nz-col nzSpan="10">
+      <nz-avatar [nzSize]="128" nzIcon="user" [nzSrc]=""></nz-avatar>
+    </nz-col>
+    <nz-col nzSpan="14" style="display:flex; flex-direction: column; justify-content: space-around">
+      <div><i nz-icon nzType="user" nzTheme="outline"></i> {{member.firstName}} {{member.lastName}}</div>
+      <div><i nz-icon nzType="mail" nzTheme="outline"></i> {{member.email}}</div>
+      <div><i nz-icon nzType="contacts" nzTheme="outline"></i> {{member.role}}</div>
+    </nz-col>
+    <nz-col nzSpan="24">
+      <nz-switch [(ngModel)]="member.isUnblocked"></nz-switch>
+      <span>
+              &nbsp; Account is {{member.isUnblocked ? 'unblocked' : 'blocked'}}. Click for {{member.isUnblocked ? 'blocking' : 'unblocking'}}
+            </span>
+    </nz-col>
+  </nz-row>
+</nz-card>

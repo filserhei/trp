@@ -1,0 +1,23 @@
+<h2 class="text-center">Tender team</h2>
+<nz-card>
+  <h3>Tender owner</h3>
+  <nz-row>
+    <div nz-col nzSpan="8" style="margin-top: 8px">
+      <app-team-member-card [member]="member"></app-team-member-card>
+    </div>
+  </nz-row>
+  <h3 style="margin: 16px 0">Tender managers</h3>
+  <nz-row [nzGutter]="[8, 8]">
+    <div nz-col nzSpan="8" *ngFor="let member of managers">
+      <app-team-member-card [member]="member"></app-team-member-card>
+    </div>
+  </nz-row>
+  <h3 style="margin: 16px 0">Manage participants</h3>
+  <nz-row>
+    <p nz-col nzSpan="20">Automatically remove read-only scopes, groups and participants</p>
+    <div nz-col nzSpan="4"><nz-switch></nz-switch></div>
+    <p nz-col nzSpan="20">Automatically extend editing access to not fully quoting participants upon round completion</p>
+    <div nz-col nzSpan="4"><nz-switch></nz-switch></div>
+  </nz-row>
+
+</nz-card>

@@ -1,0 +1,139 @@
+<header>
+  <nz-steps nzLabelPlacement="vertical" [nzCurrent]="stepIndex">
+    <nz-step nzTitle="Step 1"></nz-step>
+    <nz-step nzTitle="Step 2"></nz-step>
+    <nz-step nzTitle="Step 3"></nz-step>
+    <nz-step nzTitle="Step 4"></nz-step>
+    <nz-step nzTitle="Step 5"></nz-step>
+    <nz-step nzTitle="Step 6"></nz-step>
+    <nz-step nzTitle="Step 7"></nz-step>
+    <nz-step nzTitle="Step 8"></nz-step>
+  </nz-steps>
+</header>
+
+<main>
+  <div *ngIf="stepIndex === 0">
+    <h2>Tender information</h2>
+    <nz-row>Title</nz-row>
+    <nz-row class="margin-bot">
+      <nz-col nzSpan="20">
+        <input nz-input type="text">
+      </nz-col>
+    </nz-row>
+    <nz-row>Customer</nz-row>
+    <nz-row class="margin-bot">
+      <nz-col nzSpan="9">
+        <nz-select class="full-width"></nz-select>
+      </nz-col>
+      <nz-col nzSpan="2"></nz-col>
+      <nz-col nzSpan="9"><button nz-button nzType="primary">+ Add new customer</button></nz-col>
+    </nz-row>
+    <nz-row>Sales responsible</nz-row>
+    <nz-row class="margin-bot">
+      <nz-col nzSpan="20">
+        <nz-select class="full-width"></nz-select>
+      </nz-col>
+    </nz-row>
+    <nz-row>Reporting currency</nz-row>
+    <nz-row class="margin-bot">
+      <nz-col nzSpan="20">
+        <nz-select class="full-width"></nz-select>
+      </nz-col>
+    </nz-row>
+    <nz-row>Industry</nz-row>
+    <nz-row class="margin-bot">
+      <nz-col nzSpan="20">
+        <nz-select class="full-width"></nz-select>
+      </nz-col>
+    </nz-row>
+    <nz-row>Invitation message</nz-row>
+    <nz-row class="margin-bot">
+      <nz-col nzSpan="20">
+        <textarea nz-input [nzAutosize]="{minRows: 2, maxRows: 8}"></textarea>
+      </nz-col>
+    </nz-row>
+  </div>
+
+  <div *ngIf="stepIndex === 1">
+    <h2>Tender documentation</h2>
+    <p>
+      Upload any documentation here if required. There is standard documentation available
+      in company profile which can be applied automatically. Particular tender documents
+      may be defined as mandatory for acceptance by click on icon. If enabled, participant user
+      will have to explicitly download and mark such documents as read to get access to the tender.
+    </p>
+    <nz-row nzGutter="16">
+      <nz-col nzSpan="12">
+        <nz-upload [nzLimit]="1" nzType="drag" [nzMultiple]="false">
+          Required
+        </nz-upload>
+      </nz-col>
+      <nz-col nzSpan="12">
+        <nz-upload [nzLimit]="1" nzType="drag" [nzMultiple]="false">
+          Not required
+        </nz-upload>
+      </nz-col>
+    </nz-row>
+    <h3>Use company default</h3>
+    <nz-upload [nzLimit]="1" nzType="drag" [nzMultiple]="false">
+      Choose template
+    </nz-upload>
+  </div>
+
+  <div *ngIf="stepIndex === 2">
+    <h2>Rate template & Port validation</h2>
+    <p>
+      Create your Baseline and Rate card template by uploading your Volume File with shipment data
+      and historical costs. If required, set up Warehouse rate templates by creating these.
+      Either or both transportation and warehouse profiles can be set up. Having at least
+      single profile of either type is enough to successfully validate this section.
+    </p>
+  </div>
+  <div *ngIf="stepIndex === 3" style="overflow-x: scroll">
+    <h2>Volume overview</h2>
+
+    <nz-table [nzData]="fakeData" #table>
+      <thead>
+      <tr>
+        <th *ngFor="let column of columns">{{column}}</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let fdata of table.data">
+        <td *ngFor="let column of fdata">{{column}}</td>
+
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
+  <div *ngIf="stepIndex === 4"></div>
+  <div *ngIf="stepIndex === 5"></div>
+  <div *ngIf="stepIndex === 6"></div>
+  <div *ngIf="stepIndex === 7"></div>
+</main>
+
+<footer>
+  <div style="position: fixed; bottom: 0; background-color: white">
+    <button nz-button nzType="default" style="margin-right: 16px">
+      <span>Close</span>
+    </button>
+    <button nz-button nzType="primary" (click)="pre()" *ngIf="stepIndex > 0" style="margin-right: 16px">
+      <span>Back</span>
+    </button>
+    <button nz-button nzType="primary" (click)="next()">
+      <span>Next</span>
+    </button>
+    <p>
+      <br>
+      Create your Tender by completing the steps below.
+      Once finalized and opened, participants will receive an email invitation and
+      guidance how to proceed. You will then redirected to the ControlRoom -
+      your cockpit during the remainder of this tender.
+    </p>
+  </div>
+  <div style="height: 140px"></div>
+
+
+
+</footer>

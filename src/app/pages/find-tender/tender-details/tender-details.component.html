@@ -1,0 +1,54 @@
+
+<h2 class="text-center">Tender information</h2>
+<nz-card>
+  <h3>Title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, magnam.</h3>
+  <nz-row [nzGutter]="[16, 24]" nzAlign="middle">
+    <nz-col nzSpan="6" class="text-right">Launch date: </nz-col>
+    <nz-col nzSpan="6"><nz-date-picker [(ngModel)]="tender.launchDate"></nz-date-picker></nz-col>
+    <nz-col nzSpan="12"></nz-col>
+    <nz-col nzSpan="6" class="text-right"><span>Internal deadline: </span> </nz-col>
+    <nz-col nzSpan="6"><nz-date-picker [(ngModel)]="tender.internalDeadline"></nz-date-picker></nz-col>
+    <nz-col nzSpan="6" class="text-right">Customer deadline: </nz-col>
+    <nz-col nzSpan="6"><nz-date-picker [(ngModel)]="tender.customerDeadline"></nz-date-picker></nz-col>
+    <nz-col nzSpan="24">
+    <span>
+      Sales responsible: {{tender.salesResponsible}}
+      <i nz-icon nzType="edit" nz-tooltip nzTooltipTitle="Edit" (click)="salesResponsibleIsEditing = true"></i>
+      <span *ngIf="salesResponsibleIsEditing">
+        <input nz-input placeholder="Enter new name" [(ngModel)]="newSalesResponsible" (keyup.enter)="changeSalesResponsible()" style="width: max-content">
+        <button nz-button (click)="cancel()">Cancel</button>
+        <button nz-button (click)="changeSalesResponsible()">Save</button>
+      </span>
+    </span>
+    </nz-col>
+    <nz-col nzSpan="24">
+      Requested rate validity:
+      <nz-date-picker></nz-date-picker>
+      to
+      <nz-date-picker></nz-date-picker>
+    </nz-col>
+    <nz-col nzSpan="12">
+      Customer: {{tender.customer}}
+    </nz-col>
+    <nz-col nzSpan="12">
+      Industry: {{tender.industry}}
+    </nz-col>
+    <nz-col nzSpan="24">Reporting currency: {{tender.currency}}</nz-col>
+  </nz-row>
+  <h3>Uploaded documents</h3>
+
+  <nz-row [nzGutter]="[16, 24]">
+    <nz-col nzSpan="8">Original shipment files <i nz-icon nzType="edit"></i>&nbsp;<i nz-icon nzType="plus"></i></nz-col>
+    <nz-col nzSpan="8">Rate card template <i nz-icon nzType="edit"></i>&nbsp;<i nz-icon nzType="plus"></i></nz-col>
+    <nz-col nzSpan="8">Data source <i nz-icon nzType="edit"></i>&nbsp;<i nz-icon nzType="plus"></i></nz-col>
+    <nz-col nzSpan="8">Quotations <i nz-icon nzType="edit"></i>&nbsp;<i nz-icon nzType="plus"></i></nz-col>
+    <nz-col nzSpan="8">Shipment profile <i nz-icon nzType="edit"></i>&nbsp;<i nz-icon nzType="plus"></i></nz-col>
+  </nz-row>
+
+  <h3>Invitation message</h3>
+  <input nz-input placeholder="Title">
+  Description: <br>
+  <textarea nz-input [nzAutosize]="{minRows: 2, maxRows: 8}"></textarea>
+
+
+</nz-card>

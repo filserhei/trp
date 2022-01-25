@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ViewService} from "./pages/services/view.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'trp';
+  isCollapsed = false;
+
+  constructor(public viewService: ViewService) {
+  }
+
+  ngOnInit(): void {
+  }
 }
