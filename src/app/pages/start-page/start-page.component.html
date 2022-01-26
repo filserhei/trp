@@ -3,20 +3,27 @@
 <nz-row [nzGutter]="[24, 24]">
   <nz-col nzSpan="12">
     <nz-card>
-      <h3>Notification center</h3>
+      <h3 class="text-center">Notification center</h3>
       <div>
-        <nz-card class="swot-item" nzSize="small">
-          <p nz-typography nzEllipsis>{{'text'}}</p>
+        <nz-card nzSize="small" *ngFor="let notification of notifications" style="margin-top: 8px">
+          <h4>{{notification.title}}</h4>
+          <p nz-typography nzEllipsis>- {{notification.content}}</p>
         </nz-card>
       </div>
     </nz-card>
   </nz-col>
   <nz-col nzSpan="12">
     <nz-card>
-      <h3>Notification center</h3>
+      <h3 class="text-center">Tender center</h3>
       <div>
-        <nz-card class="swot-item" nzSize="small">
-          <p nz-typography nzEllipsis>{{'text'}}</p>
+        <nz-card nzSize="small" *ngFor="let tender of tenders" style="margin-top: 8px">
+          <h4>{{tender.title}}</h4>
+          <p nz-typography nzEllipsis>
+            Start day: {{tender.startDate | date}}<br>
+            Participants: {{tender.participants}}<br>
+            Deadline: {{tender.deadline | date}}<br>
+            Stage: {{tender.stage}}
+          </p>
         </nz-card>
       </div>
     </nz-card>
@@ -25,20 +32,20 @@
 <nz-row [nzGutter]="[24, 24]">
   <nz-col nzSpan="12">
     <nz-card>
-      <h3>Notification center</h3>
+      <h3 class="text-center">Rate center</h3>
       <div>
-        <nz-card class="swot-item" nzSize="small">
-          <p nz-typography nzEllipsis>{{'text'}}</p>
+        <nz-card nzSize="small">
+          <p nz-typography nzEllipsis>{{'content'}}</p>
         </nz-card>
       </div>
     </nz-card>
   </nz-col>
   <nz-col nzSpan="12">
     <nz-card>
-      <h3>Notification center</h3>
+      <h3 class="text-center">Tender notifications center</h3>
       <div>
-        <nz-card class="swot-item" nzSize="small">
-          <p nz-typography nzEllipsis>{{'text'}}</p>
+        <nz-card nzSize="small">
+          <p nz-typography nzEllipsis>{{'content'}}</p>
         </nz-card>
       </div>
     </nz-card>

@@ -22,6 +22,7 @@ import { TenderTeamComponent } from './tender-team/tender-team.component';
 import {NzAvatarModule} from "ng-zorro-antd/avatar";
 import {NzSwitchModule} from "ng-zorro-antd/switch";
 import { TeamMemberCardComponent } from './tender-team/team-member-card/team-member-card.component';
+import { QuotationsComponent } from './quotations/quotations.component';
 
 
 
@@ -32,6 +33,7 @@ import { TeamMemberCardComponent } from './tender-team/team-member-card/team-mem
     TenderDetailsComponent,
     TenderTeamComponent,
     TeamMemberCardComponent,
+    QuotationsComponent,
 
   ],
   imports: [
