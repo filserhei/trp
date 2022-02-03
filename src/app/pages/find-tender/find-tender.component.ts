@@ -1,20 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 
-const tender = {
-  title: 'Tender Title',
-  id: 44854,
-  status: 'Active',
-  transportMode: 'Air',
-  tenderOwner: 'KJH',
-  businessOwner: 'LJHJG',
-  created: '10.10.2010',
-  launched: '10.11.2010',
-  deadline: '30.03.2040',
-  customer: 'Vano',
-  customerDeadline : '30.04.2060'
-};
-
 @Component({
   selector: 'app-find-tender',
   templateUrl: './find-tender.component.html',
@@ -22,7 +8,20 @@ const tender = {
 })
 export class FindTenderComponent implements OnInit {
   tenders: any = [];
-  statuses: string[] = ['Draft', 'Template', 'Open', 'Archived', 'Any status', 'Past deadline', 'Finished', 'Cancelled'];
+  tender = {
+    title: 'Tender Title',
+    id: 44854,
+    status: 'Active',
+    transportMode: 'Air',
+    tenderOwner: 'KJH',
+    businessOwner: 'LJHJG',
+    created: '10.10.2010',
+    launched: '10.11.2010',
+    deadline: '30.03.2040',
+    customer: 'Vano',
+    customerDeadline : '30.04.2060'
+  };
+  statuses: string[] = ['Any status', 'Draft', 'Template', 'Open', 'Archived', 'Any status', 'Past deadline', 'Finished', 'Cancelled'];
   filtersVisible = false;
   showFields: {[key: string]: boolean} = {
     transportMode: true,
@@ -34,7 +33,9 @@ export class FindTenderComponent implements OnInit {
   constructor(private router: Router ) { }
 
   ngOnInit(): void {
-    for (let i = 0; i < 14; i++) {
+    for (let i = 0; i < 24; i++) {
+      const tender = { ...this.tender };
+      tender.status = this.statuses[i % this.statuses.length];
       this.tenders.push(tender);
     }
 

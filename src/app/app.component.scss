@@ -16,6 +16,11 @@
   box-shadow: 2px 0 6px rgba(0,21,41,.35);
 }
 
+.sidebar__wrapper {
+  position: sticky;
+  top: 0;
+}
+
 .header-trigger {
   height: 64px;
   padding: 20px 24px;

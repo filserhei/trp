@@ -12,10 +12,13 @@
     <nz-col nzSpan="6"><nz-date-picker [(ngModel)]="tender.customerDeadline"></nz-date-picker></nz-col>
     <nz-col nzSpan="24">
     <span>
-      Sales responsible: {{tender.salesResponsible}}
-      <i nz-icon nzType="edit" nz-tooltip nzTooltipTitle="Edit" (click)="salesResponsibleIsEditing = true"></i>
+      Sales responsible:
+      <span *ngIf="!salesResponsibleIsEditing">
+        {{tender.salesResponsible}}
+        <i nz-icon nzType="edit" nz-tooltip nzTooltipTitle="Edit" (click)="salesResponsibleIsEditing = true"></i>
+      </span>
       <span *ngIf="salesResponsibleIsEditing">
-        <input nz-input placeholder="Enter new name" [(ngModel)]="newSalesResponsible" (keyup.enter)="changeSalesResponsible()" style="width: max-content">
+        <input nz-input [(ngModel)]="newSalesResponsible" (keyup.enter)="changeSalesResponsible()" style="width: max-content">
         <button nz-button (click)="cancel()">Cancel</button>
         <button nz-button (click)="changeSalesResponsible()">Save</button>
       </span>

@@ -6,14 +6,13 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { CreateTenderComponent } from './pages/create-tender/create-tender.component';
 import {NzTableModule} from "ng-zorro-antd/table";
-import { FindTenderComponent } from './pages/find-tender/find-tender.component';
 import {NzGridModule} from "ng-zorro-antd/grid";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {NzButtonModule} from "ng-zorro-antd/button";
@@ -31,6 +30,7 @@ import {NzTagModule} from "ng-zorro-antd/tag";
 import {NzTypographyModule} from "ng-zorro-antd/typography";
 
 import {FindTenderModule} from "./pages/find-tender/find-tender.module";
+import {NzFormModule} from "ng-zorro-antd/form";
 
 registerLocaleData(en);
 
@@ -64,7 +64,9 @@ registerLocaleData(en);
     NzAffixModule,
     NzCardModule,
     NzTagModule,
-    NzTypographyModule
+    NzTypographyModule,
+    NzFormModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

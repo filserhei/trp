@@ -1,0 +1,12 @@
+<h2 class="text-center">Settings</h2>
+
+<nz-tabset [(nzSelectedIndex)]="index">
+  <nz-tab nzTitle="Block port editing">
+    <p>Optional p/profile lock of port fields in days till the round submission deadline. Positive integer value will
+      trigger respective locks, zeros/blanks switch locks off. Editing settings here does not affect existing tenders, but
+      these are copied into newly created ones where can be managed separately.
+    </p>
+  </nz-tab>
+  <nz-tab nzTitle="Notification and communication"></nz-tab>
+</nz-tabset>
+

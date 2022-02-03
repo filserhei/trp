@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-create-tender',
@@ -13,13 +14,23 @@ export class CreateTenderComponent implements OnInit {
     'Incoterms', 'Dangerous goods', 'Temperature controlled', 'Volume(kg, pound)', 'Rate'
   ];
   fakeData: string[][] = [];
+  tenderForm: FormGroup = new FormGroup({
+    title: new FormControl('', [Validators.required], []),
+    customer: new FormControl('', [Validators.required], []),
+    salesResponsible: new FormControl('', [Validators.required], []),
+    reportingCurrency: new FormControl('', [Validators.required], []),
+    industry: new FormControl('', [Validators.required], []),
+  });
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     for (let i = 0; i < 20; i++) {
       this.fakeData.push(this.columns);
     }
+    this.tenderForm = this.fb.group({
+      title: this.fb.control('ll', [Validators.required])
+    });
   }
 
   pre(): void {
@@ -32,5 +43,9 @@ export class CreateTenderComponent implements OnInit {
     if (this.stepIndex < 7) {
       this.stepIndex++;
     }
+  }
+
+  getStepStatus(number: number): string {
+    return 'wait';
   }
 }

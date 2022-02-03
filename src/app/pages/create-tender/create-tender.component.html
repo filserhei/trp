@@ -1,25 +1,29 @@
 <header>
-  <nz-steps nzLabelPlacement="vertical" [nzCurrent]="stepIndex">
-    <nz-step nzTitle="Step 1"></nz-step>
-    <nz-step nzTitle="Step 2"></nz-step>
-    <nz-step nzTitle="Step 3"></nz-step>
-    <nz-step nzTitle="Step 4"></nz-step>
-    <nz-step nzTitle="Step 5"></nz-step>
-    <nz-step nzTitle="Step 6"></nz-step>
+  <nz-steps nzLabelPlacement="vertical" [nzCurrent]="stepIndex" >
+    <nz-step nzTitle="Step 1" [nzStatus]="'error'"></nz-step>
+    <nz-step nzTitle="Step 2" [nzStatus]="'error'"></nz-step>
+    <nz-step nzTitle="Step 3" [nzStatus]="'finish'"></nz-step>
+    <nz-step nzTitle="Step 4" [nzStatus]="'process'"></nz-step>
+    <nz-step nzTitle="Step 5" [nzStatus]="'wait'"></nz-step>
+    <nz-step nzTitle="Step 6" [nzStatus]="getStepStatus(5)"></nz-step>
     <nz-step nzTitle="Step 7"></nz-step>
     <nz-step nzTitle="Step 8"></nz-step>
   </nz-steps>
 </header>
 
 <main>
-  <div *ngIf="stepIndex === 0">
+  <div *ngIf="stepIndex === 0" [formGroup]="tenderForm">
     <h2>Tender information</h2>
     <nz-row>Title</nz-row>
+
     <nz-row class="margin-bot">
-      <nz-col nzSpan="20">
-        <input nz-input type="text">
-      </nz-col>
+      <nz-form-item nz-col nzSpan="20">
+        <nz-form-control>
+          <input nz-input type="text" formControlName="title">
+        </nz-form-control>
+      </nz-form-item>
     </nz-row>
+
     <nz-row>Customer</nz-row>
     <nz-row class="margin-bot">
       <nz-col nzSpan="9">

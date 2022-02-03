@@ -14,6 +14,7 @@ export interface TeamMember {
   styleUrls: ['./tender-team.component.scss']
 })
 export class TenderTeamComponent implements OnInit {
+  managers: TeamMember[] = [];
   member: TeamMember = {
     firstName: 'Ibragim',
     lastName: 'Mamaev',
@@ -21,13 +22,18 @@ export class TenderTeamComponent implements OnInit {
     role: 'vavasl',
     isUnblocked: true
   };
-  managers: TeamMember[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
     for (let i = 0; i < 7; i++) {
-      this.managers.push(this.member);
+      this.managers.push({
+        firstName: 'Ibragim',
+        lastName: 'Mamaev',
+        email: 'vava@aa.ua',
+        role: 'vavasl',
+        isUnblocked: !!(i % 2)
+      });
     }
   }
 

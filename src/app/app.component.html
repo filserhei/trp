@@ -4,140 +4,149 @@
             nzWidth="256px"
             [(nzCollapsed)]="isCollapsed"
             [nzTrigger]="null"
-            *ngIf="!viewService.tenderDetailsView"
+
   >
-    <div style="background-color: grey">
+    <div class="sidebar__wrapper">
+      <div style="background-color: grey">
         <img src="https://www.freightender.com/wp-content/uploads/2021/08/logo-freightender-logistics-procurement-tender-software.png" alt="logo" width="256px">
+      </div>
+
+<!--      <div>-->
+<!--        <i nz-icon  [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" style="height: 50px"-->
+<!--           (click)="isCollapsed = !isCollapsed"></i>-->
+<!--      </div>-->
+
+      <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed" *ngIf="!viewService.tenderDetailsView">
+        <li nz-submenu nzTitle="Tenders" nzIcon="">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="find">Find a tender</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="create">Create a tender</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Tender control room</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="Rates" nzIcon="">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a>Find rates</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Manage rates</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Create new set of rates</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="Reports" nzIcon="">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a>Dashboards</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Reports</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="Settings" nzIcon="">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a>Company settings</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Company documentation</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Personal settings</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Ports database</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="Supports" nzIcon="">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a>Create a ticket</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Follow-up on ticket</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="Opportunity management" nzIcon="">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a>Create an opportunity</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Manage opportunities</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed" *ngIf="viewService.tenderDetailsView">
+        <li nz-menu-item>Control room</li>
+        <li nz-submenu nzTitle="Manage tender" nzIcon="">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="tender/details/:id/team">Tender team</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="tender/details/:id/quotations">Quotations</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="tender/details/:id/data">Tender data</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="tender/details/:id/progress">Tender progress</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="tender/details/:id/settings">Settings</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="Dashboards" nzIcon=""></li>
+        <li nz-submenu nzTitle="Internal communication"></li>
+        <!--      <li nz-submenu nzTitle="Supports" nzIcon="">-->
+        <!--        <ul>-->
+        <!--          <li nz-menu-item nzMatchRouter>-->
+        <!--            <a>Create a ticket</a>-->
+        <!--          </li>-->
+        <!--          <li nz-menu-item nzMatchRouter>-->
+        <!--            <a>Follow-up on ticket</a>-->
+        <!--          </li>-->
+        <!--        </ul>-->
+        <!--      </li>-->
+        <!--      <li nz-submenu nzTitle="Opportunity management" nzIcon="">-->
+        <!--        <ul>-->
+        <!--          <li nz-menu-item nzMatchRouter>-->
+        <!--            <a>Create an opportunity</a>-->
+        <!--          </li>-->
+        <!--          <li nz-menu-item nzMatchRouter>-->
+        <!--            <a>Manage opportunities</a>-->
+        <!--          </li>-->
+        <!--        </ul>-->
+        <!--      </li>-->
+      </ul>
+
     </div>
-
-    <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzTitle="Tenders" nzIcon="">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="find">Find a tender</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="create">Create a tender</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Tender control room</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzTitle="Rates" nzIcon="">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a>Find rates</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Manage rates</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Create new set of rates</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzTitle="Reports" nzIcon="">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a>Dashboards</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Reports</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzTitle="Settings" nzIcon="">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a>Company settings</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Company documentation</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Personal settings</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Ports database</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzTitle="Supports" nzIcon="">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a>Create a ticket</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Follow-up on ticket</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzTitle="Opportunity management" nzIcon="">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a>Create an opportunity</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Manage opportunities</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
   </nz-sider>
 
-  <nz-sider *ngIf="viewService.tenderDetailsView"
-            class="menu-sidebar"
-            nzCollapsible
-            nzWidth="256px"
-            [(nzCollapsed)]="isCollapsed"
-            [nzTrigger]="null"
-  >
-    <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzTitle="Control room" nzIcon=""></li>
-      <li nz-submenu nzTitle="Manage tender" nzIcon="">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="tender/details/:id/team">Tender team</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="tender/details/:id/quotations">Quotations</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Tender data</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Tender progress</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Settings</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzTitle="Dashboards" nzIcon=""></li>
-      <li nz-submenu nzTitle="Internal communication"></li>
-<!--      <li nz-submenu nzTitle="Supports" nzIcon="">-->
-<!--        <ul>-->
-<!--          <li nz-menu-item nzMatchRouter>-->
-<!--            <a>Create a ticket</a>-->
-<!--          </li>-->
-<!--          <li nz-menu-item nzMatchRouter>-->
-<!--            <a>Follow-up on ticket</a>-->
-<!--          </li>-->
-<!--        </ul>-->
-<!--      </li>-->
-<!--      <li nz-submenu nzTitle="Opportunity management" nzIcon="">-->
-<!--        <ul>-->
-<!--          <li nz-menu-item nzMatchRouter>-->
-<!--            <a>Create an opportunity</a>-->
-<!--          </li>-->
-<!--          <li nz-menu-item nzMatchRouter>-->
-<!--            <a>Manage opportunities</a>-->
-<!--          </li>-->
-<!--        </ul>-->
-<!--      </li>-->
-    </ul>
-  </nz-sider>
+<!--  <nz-sider *ngIf="viewService.tenderDetailsView"-->
+<!--            class="menu-sidebar"-->
+<!--            nzCollapsible-->
+<!--            nzWidth="256px"-->
+<!--            [(nzCollapsed)]="isCollapsed"-->
+<!--            [nzTrigger]="null"-->
+<!--  >-->
+
+<!--  </nz-sider>-->
   <nz-layout>
     <nz-header>
       <h1 style="text-align: center">HEADER</h1>

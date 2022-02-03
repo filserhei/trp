@@ -29,7 +29,11 @@ export class TenderDetailsComponent implements OnInit {
     currency: 'USA'
   };
   salesResponsibleIsEditing: boolean = false;
-  newSalesResponsible: string = '';
+  newSalesResponsible: string = this.tender.salesResponsible;
+
+  title = 'Title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, magnam.';
+  titleIsEditing = false;
+  newTitle = this.title;
 
 
   constructor(public viewService: ViewService) { }
@@ -44,7 +48,7 @@ export class TenderDetailsComponent implements OnInit {
   }
 
   cancel() {
-    this.newSalesResponsible = '';
+    this.newSalesResponsible = this.tender.salesResponsible;
     this.salesResponsibleIsEditing = false;
   }
 }

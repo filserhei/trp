@@ -23,6 +23,11 @@ import {NzAvatarModule} from "ng-zorro-antd/avatar";
 import {NzSwitchModule} from "ng-zorro-antd/switch";
 import { TeamMemberCardComponent } from './tender-team/team-member-card/team-member-card.component';
 import { QuotationsComponent } from './quotations/quotations.component';
+import {NzDividerModule} from "ng-zorro-antd/divider";
+import { TenderDataComponent } from './tender-data/tender-data.component';
+import { TenderProgressComponent } from './tender-progress/tender-progress.component';
+import { TenderSettingsComponent } from './tender-settings/tender-settings.component';
+import {NzTabsModule} from "ng-zorro-antd/tabs";
 
 
 
@@ -34,6 +39,9 @@ import { QuotationsComponent } from './quotations/quotations.component';
     TenderTeamComponent,
     TeamMemberCardComponent,
     QuotationsComponent,
+    TenderDataComponent,
+    TenderProgressComponent,
+    TenderSettingsComponent,
 
   ],
   imports: [
@@ -53,7 +61,9 @@ import { QuotationsComponent } from './quotations/quotations.component';
     NzDatePickerModule,
     NzLayoutModule,
     NzAvatarModule,
-    NzSwitchModule
+    NzSwitchModule,
+    NzDividerModule,
+    NzTabsModule
   ]
 })
 export class FindTenderModule { }

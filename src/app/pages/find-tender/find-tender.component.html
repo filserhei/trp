@@ -7,7 +7,7 @@
   </nz-col>
   <nz-col nzSpan="6">
     <nz-select nzMode="default" nzPlaceHolder="Select status" class="full-width">
-      <nz-option *ngFor="let option of statuses" [nzLabel]="option" [nzValue]="option" >
+      <nz-option *ngFor="let option of statuses" [nzLabel]="option" [nzValue]="option">
       </nz-option>
     </nz-select>
   </nz-col>
@@ -40,10 +40,11 @@
   <nz-col nzSpan="6">
     <input nz-input type="text" placeholder="Filter4">
   </nz-col>
+  <nz-divider></nz-divider>
 </div>
 
 <div class="top-margin">
-  <nz-table [nzData]="tenders" #table>
+  <nz-table nzBordered [nzData]="tenders" #table>
     <thead>
       <tr>
         <th>Title </th>
