@@ -9,7 +9,7 @@ import {NzGridModule} from "ng-zorro-antd/grid";
 import {NzSelectModule} from "ng-zorro-antd/select";
 import {NzDropDownModule} from "ng-zorro-antd/dropdown";
 import {NzCheckboxModule} from "ng-zorro-antd/checkbox";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NzTableModule} from "ng-zorro-antd/table";
 import {NzCardModule} from "ng-zorro-antd/card";
 import { TenderDetailsComponent } from './tender-details/tender-details.component';
@@ -33,37 +33,41 @@ import {NzTabsModule} from "ng-zorro-antd/tabs";
 
 
 @NgModule({
-  declarations: [
-    FindTenderComponent,
-    TenderDetailsComponent,
-    TenderTeamComponent,
-    TeamMemberCardComponent,
-    QuotationsComponent,
-    TenderDataComponent,
-    TenderProgressComponent,
-    TenderSettingsComponent,
+    declarations: [
+        FindTenderComponent,
+        TenderDetailsComponent,
+        TenderTeamComponent,
+        TeamMemberCardComponent,
+        QuotationsComponent,
+        TenderDataComponent,
+        TenderProgressComponent,
+        TenderSettingsComponent,
 
-  ],
-  imports: [
-    CommonModule,
-    FindTenderRoutingModule,
-    NzButtonModule,
-    NzGridModule,
-    NzSelectModule,
-    NzDropDownModule,
-    NzCheckboxModule,
-    FormsModule,
-    NzTableModule,
-    NzCardModule,
-    NzInputModule,
-    NzIconModule,
-    NzToolTipModule,
-    NzDatePickerModule,
-    NzLayoutModule,
-    NzAvatarModule,
-    NzSwitchModule,
-    NzDividerModule,
-    NzTabsModule
-  ]
+    ],
+    exports: [
+        TeamMemberCardComponent
+    ],
+    imports: [
+        CommonModule,
+        FindTenderRoutingModule,
+        NzButtonModule,
+        NzGridModule,
+        NzSelectModule,
+        NzDropDownModule,
+        NzCheckboxModule,
+        FormsModule,
+        NzTableModule,
+        NzCardModule,
+        NzInputModule,
+        NzIconModule,
+        NzToolTipModule,
+        NzDatePickerModule,
+        NzLayoutModule,
+        NzAvatarModule,
+        NzSwitchModule,
+        NzDividerModule,
+        NzTabsModule,
+        ReactiveFormsModule
+    ]
 })
 export class FindTenderModule { }

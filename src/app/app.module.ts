@@ -29,20 +29,22 @@ import {NzCardModule} from "ng-zorro-antd/card";
 import {NzTagModule} from "ng-zorro-antd/tag";
 import {NzTypographyModule} from "ng-zorro-antd/typography";
 
-import {FindTenderModule} from "./pages/find-tender/find-tender.module";
+// import {FindTenderModule} from "./pages/find-tender/find-tender.module";
 import {NzFormModule} from "ng-zorro-antd/form";
+// import {CreateTenderModule} from "./pages/create-tender/create-tender.module";
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateTenderComponent,
+    // CreateTenderComponent,
     // FindTenderComponent,
     StartPageComponent,
   ],
   imports: [
-    FindTenderModule,
+    // FindTenderModule,
+    // CreateTenderModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

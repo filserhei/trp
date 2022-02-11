@@ -1,0 +1,164 @@
+<nz-tabset [(nzSelectedIndex)]="tabIndex">
+  <nz-tab nzTitle="Tender team"></nz-tab>
+  <nz-tab nzTitle="Participants"></nz-tab>
+  <nz-tab nzTitle="Settings"></nz-tab>
+  <nz-tab nzTitle="Security"></nz-tab>
+  <nz-tab nzTitle="Details"></nz-tab>
+  <nz-tab nzTitle="Portrix GPM"></nz-tab>
+</nz-tabset>
+
+<div *ngIf="tabIndex === 0">
+  <div nz-row nzGutter="16">
+    <nz-col nzSpan="6">
+      <nz-input-group nzSuffixIcon="search">
+        <input type="text" nz-input placeholder="Search">
+      </nz-input-group>
+    </nz-col>
+    <nz-col nzSpan="18">
+      <button nz-button nzType="primary"><i nz-icon nzType="plus"></i> Add account</button>
+      <button nz-button nzType="primary" style="margin-left: 12px">Export</button>
+    </nz-col>
+  </div>
+  <div class="team__cards">
+    <app-team-member-card *ngFor="let member of members" [member]="member"></app-team-member-card>
+  </div>
+</div>
+
+<div *ngIf="tabIndex === 1">
+  <div nz-row nzGutter="16">
+    <nz-col nzSpan="6">
+      <nz-input-group nzSuffixIcon="search">
+        <input type="text" nz-input placeholder="Search">
+      </nz-input-group>
+    </nz-col>
+    <nz-col nzSpan="18" class="select__box">
+      <nz-select nzMode="multiple" nzPlaceHolder="Structure" style="width: 150px"></nz-select>
+      <nz-select nzMode="multiple" nzPlaceHolder="Entities" style="width: 150px"></nz-select>
+      <nz-select nzMode="multiple" nzPlaceHolder="Groups scope" style="width: 150px"></nz-select>
+      <nz-select nzMode="multiple" nzPlaceHolder="Team scope" style="width: 150px"></nz-select>
+    </nz-col>
+  </div>
+  <nz-table nzBordered [nzData]="participants" #participantsTable style="margin-top: 20px">
+    <thead>
+    <tr>
+      <th>Company name</th>
+      <th>First last name</th>
+      <th>Email</th>
+      <th>Login</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let participant of participantsTable.data">
+      <td>{{participant.companyName}}</td>
+      <td>{{participant.name}}</td>
+      <td>{{participant.email}}</td>
+      <td>{{participant.login}}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>
+
+<div *ngIf="tabIndex === 2">
+  <div class="buttons__box">
+    <button nz-button nzType="primary">Tender creation and management</button>
+    <button nz-button nzType="primary">NDA & Tender documentation</button>
+    <button nz-button nzType="primary">Questionnaire</button>
+    <button nz-button nzType="primary">Shipment profile defaults</button>
+    <button nz-button nzType="primary">Standard rates profile defaults</button>
+    <button nz-button nzType="primary">Group viewing rights</button>
+    <button nz-button nzType="primary">Notifications</button>
+    <button nz-button nzType="primary">Q&A</button>
+    <button nz-button nzType="primary">Vertical markets</button>
+    <button nz-button nzType="primary">Lane service types</button>
+    <button nz-button nzType="primary">Port fields update lock</button>
+    <button nz-button nzType="primary">Tiers</button>
+    <button nz-button nzType="primary">Service levels</button>
+    <button nz-button nzType="primary">Currency presets and exchange rates</button>
+    <button nz-button nzType="primary">Volumetric conversion presets</button>
+    <button nz-button nzType="primary">Progress views</button>
+  </div>
+</div>
+
+<div *ngIf="tabIndex === 3">
+  <h3 class="text-center">General</h3>
+  <nz-card>
+    <nz-row nzGutter="20">
+      <nz-col nzSpan="6">
+        <span>Allowed email domain</span><br>
+        <input type="text" nz-input>
+      </nz-col>
+      <nz-col nzSpan="18">
+        <p>
+          Protect your environment by restricting access to only those colleagues (email address domains) which match
+          one of the allowed email domains. Sample: For abc@company.com input domain as company.com You can specify one
+          or more email domains. If a user attempts to invite a colleague with a different domain, than this will not be
+          possible.
+        </p>
+      </nz-col>
+    </nz-row>
+  </nz-card>
+
+  <h3 class="text-center">Fraud protection</h3>
+  <nz-card>
+    <nz-row nzGutter="20">
+      <nz-col nzSpan="6">
+        <span>Unreliable email domains</span><br>
+        <input type="text" nz-input>
+      </nz-col>
+      <nz-col nzSpan="18">
+        <p>
+          Set email domains that your company considers to be a potential risk and requires attention. For instance
+          public domains like gmail.com or icloud.com It does not block usage, but hints user during creation of the
+          tender in case groups are invited with an Email address ending with specified domains.
+        </p>
+      </nz-col>
+    </nz-row>
+  </nz-card>
+
+  <h3 class="text-center">Account verification</h3>
+  <nz-card>
+    <nz-row nzGutter="20">
+      <nz-col nzSpan="6">
+        <nz-switch></nz-switch>
+        <span>Enable/disable</span>
+        <br>
+        <nz-select style="width: 100px" nzPlaceHolder="90/180">
+          <nz-option nzLabel="90" nzValue="90"></nz-option>
+          <nz-option nzLabel="180" nzValue="180"></nz-option>
+        </nz-select>
+        <span>Validity period</span>
+        <nz-select style="width: 100px">
+          <nz-option nzLabel="1" nzValue="1"></nz-option>
+          <nz-option nzLabel="2" nzValue="2"></nz-option>
+          <nz-option nzLabel="3" nzValue="3"></nz-option>
+        </nz-select>
+        <span>Number of recent passwords to check</span>
+      </nz-col>
+      <nz-col nzSpan="18">
+        <p>
+          If enabled, accounts will be invalidated after a fixed period (90 or 180 calendar days) with new password
+          reset link emailed to each user on individual basis for entry of the new password that has to be distinct
+          within a configurable number of recently used ones (1 to 10).
+        </p>
+      </nz-col>
+    </nz-row>
+  </nz-card>
+
+  <h3 class="text-center">API key</h3>
+  <nz-card>
+    <nz-row nzGutter="20">
+      <nz-col nzSpan="6">
+        <span>Unreliable email domains</span><br>
+        <input type="text" nz-input>
+      </nz-col>
+      <nz-col nzSpan="18">
+        <p>
+          This key is used to access the Freightender API and is specific to your company. Refer to online documentation
+          and data model overview for usage details.
+        </p>
+      </nz-col>
+    </nz-row>
+  </nz-card>
+
+
+</div>

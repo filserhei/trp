@@ -10,7 +10,7 @@ import {TenderSettingsComponent} from "./tender-settings/tender-settings.compone
 
 
 const routes: Routes = [
-  {path: 'find', component: FindTenderComponent},
+  {path: '', component: FindTenderComponent},
   {path: 'tender/details/:id', component: TenderDetailsComponent},
   {path: 'tender/details/:id/team', component: TenderTeamComponent},
   {path: 'tender/details/:id/quotations', component: QuotationsComponent},

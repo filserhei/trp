@@ -16,7 +16,7 @@
 <!--           (click)="isCollapsed = !isCollapsed"></i>-->
 <!--      </div>-->
 
-      <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed" *ngIf="!viewService.tenderDetailsView">
+      <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed" *ngIf="!isTenderDetailsView()">
         <li nz-submenu nzTitle="Tenders" nzIcon="">
           <ul>
             <li nz-menu-item nzMatchRouter>
@@ -56,7 +56,7 @@
         <li nz-submenu nzTitle="Settings" nzIcon="">
           <ul>
             <li nz-menu-item nzMatchRouter>
-              <a>Company settings</a>
+              <a routerLink="settings">Company settings</a>
             </li>
             <li nz-menu-item nzMatchRouter>
               <a>Company documentation</a>
@@ -90,24 +90,24 @@
           </ul>
         </li>
       </ul>
-      <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed" *ngIf="viewService.tenderDetailsView">
+      <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed" *ngIf="isTenderDetailsView()">
         <li nz-menu-item>Control room</li>
         <li nz-submenu nzTitle="Manage tender" nzIcon="">
           <ul>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="tender/details/:id/team">Tender team</a>
+              <a routerLink="find/tender/details/:id/team">Tender team</a>
             </li>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="tender/details/:id/quotations">Quotations</a>
+              <a routerLink="find/tender/details/:id/quotations">Quotations</a>
             </li>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="tender/details/:id/data">Tender data</a>
+              <a routerLink="find/tender/details/:id/data">Tender data</a>
             </li>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="tender/details/:id/progress">Tender progress</a>
+              <a routerLink="find/tender/details/:id/progress">Tender progress</a>
             </li>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="tender/details/:id/settings">Settings</a>
+              <a routerLink="find/tender/details/:id/settings">Settings</a>
             </li>
           </ul>
         </li>

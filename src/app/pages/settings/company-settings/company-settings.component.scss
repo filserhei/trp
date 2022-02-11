@@ -1,0 +1,28 @@
+.team__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 20px;
+  row-gap: 12px;
+}
+
+.select__box > nz-select {
+  margin-right: 12px;
+}
+
+.buttons__box {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+
+  & > button {
+    width: 240px; height: 120px; border-radius: 8px
+  }
+}
+
+h3 {
+  margin-top: 20px;
+}
+
+

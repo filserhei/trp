@@ -6,9 +6,10 @@
     <button nz-button nzType="primary" (click)="filtersVisible = !filtersVisible">{{filtersVisible ? 'Hide filters' : 'Show filters'}}</button>
   </nz-col>
   <nz-col nzSpan="6">
-    <nz-select nzMode="default" nzPlaceHolder="Select status" class="full-width">
-      <nz-option *ngFor="let option of statuses" [nzLabel]="option" [nzValue]="option">
-      </nz-option>
+    <nz-select nzMode="multiple" nzAllowClear nzPlaceHolder="Select status"
+                class="full-width" [(ngModel)]="filterStatuses" (ngModelChange)="filterTenders()"
+    >
+      <nz-option *ngFor="let status of statuses" [nzLabel]="status" [nzValue]="status"></nz-option>
     </nz-select>
   </nz-col>
   <nz-col nzSpan="6">
@@ -44,7 +45,7 @@
 </div>
 
 <div class="top-margin">
-  <nz-table nzBordered [nzData]="tenders" #table>
+  <nz-table nzBordered [nzData]="filteredTenders" #table>
     <thead>
       <tr>
         <th>Title </th>

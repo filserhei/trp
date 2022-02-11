@@ -8,8 +8,8 @@
   </nz-row>
   <h3 style="margin: 16px 0">Tender managers</h3>
   <nz-row [nzGutter]="[8, 8]">
-    <div nz-col nzSpan="8" *ngFor="let member of managers">
-      <app-team-member-card [member]="member"></app-team-member-card>
+    <div nz-col nzSpan="8" *ngFor="let manager of managers">
+      <app-team-member-card [member]="manager"></app-team-member-card>
     </div>
   </nz-row>
   <h3 style="margin: 16px 0">Manage participants</h3>
