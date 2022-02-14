@@ -15,9 +15,10 @@ export interface Participant {
   styleUrls: ['./company-settings.component.scss']
 })
 export class CompanySettingsComponent implements OnInit {
-  tabIndex = 3;
+  tabIndex = 5;
   members: TeamMember[] = [];
   participants: Participant[] = [];
+  periods: number[] = [];
 
   constructor() { }
 
@@ -36,6 +37,10 @@ export class CompanySettingsComponent implements OnInit {
         companyName: 'Sharashkina company',
         login: 'Ebun_gora'
       });
+
+      if (i < 10) {
+        this.periods.push(i);
+      }
     }
   }
 

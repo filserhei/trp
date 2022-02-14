@@ -69,18 +69,18 @@
     <nz-row nzGutter="16">
       <nz-col nzSpan="12">
         <nz-upload [nzLimit]="1" nzType="drag" [nzMultiple]="false">
-          Required
+          <b>Required</b> (Drag and drop a file here)
         </nz-upload>
       </nz-col>
       <nz-col nzSpan="12">
         <nz-upload [nzLimit]="1" nzType="drag" [nzMultiple]="false">
-          Not required
+          <b>Not required</b> (Drag and drop a file here)
         </nz-upload>
       </nz-col>
     </nz-row>
     <h3>Use company default</h3>
     <nz-upload [nzLimit]="1" nzType="drag" [nzMultiple]="false">
-      Choose template
+      <b>Choose template</b> (Drag and drop a file here)
     </nz-upload>
   </div>
 
@@ -119,17 +119,16 @@
 
 <footer>
   <div style="position: fixed; bottom: 0; background-color: white">
-    <button nz-button nzType="default" style="margin-right: 16px">
-      <span>Close</span>
-    </button>
     <button nz-button nzType="primary" (click)="pre()" *ngIf="stepIndex > 0" style="margin-right: 16px">
       <span>Back</span>
     </button>
-    <button nz-button nzType="primary" (click)="next()">
+    <button nz-button nzType="primary" (click)="next()" style="margin-right: 16px">
       <span>Next</span>
     </button>
+    <button nz-button nzType="default" >
+      <span>Close</span>
+    </button>
     <p>
-      <br>
       Create your Tender by completing the steps below.
       Once finalized and opened, participants will receive an email invitation and
       guidance how to proceed. You will then redirected to the ControlRoom -

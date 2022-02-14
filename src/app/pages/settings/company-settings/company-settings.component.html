@@ -128,9 +128,7 @@
         </nz-select>
         <span>Validity period</span>
         <nz-select style="width: 100px">
-          <nz-option nzLabel="1" nzValue="1"></nz-option>
-          <nz-option nzLabel="2" nzValue="2"></nz-option>
-          <nz-option nzLabel="3" nzValue="3"></nz-option>
+          <nz-option *ngFor="let period of periods" [nzLabel]="period" [nzValue]="period"></nz-option>
         </nz-select>
         <span>Number of recent passwords to check</span>
       </nz-col>
@@ -148,8 +146,13 @@
   <nz-card>
     <nz-row nzGutter="20">
       <nz-col nzSpan="6">
-        <span>Unreliable email domains</span><br>
-        <input type="text" nz-input>
+        <nz-input-group [nzSuffix]="copyTpl">
+          <input type="text" nz-input readonly value="someKey">
+        </nz-input-group>
+        <ng-template #copyTpl>
+          <!--          <i nz-icon nzType="copy" class="pointer"></i>-->
+        </ng-template>
+        <button nz-button>Generate</button>
       </nz-col>
       <nz-col nzSpan="18">
         <p>
@@ -160,5 +163,162 @@
     </nz-row>
   </nz-card>
 
+  <h3 class="text-center">TendrX ID</h3>
+  <nz-card>
+    <nz-row nzGutter="20">
+      <nz-col nzSpan="6">
+        <input type="text" nz-input readonly value="Tendrxidddd">
+        <button nz-button>Edit</button>
+        <br>
+      </nz-col>
+      <nz-col nzSpan="18">
+        <p>
+          If defined, enables transfer of carrier and tender data from TendrX
+        </p>
+      </nz-col>
+    </nz-row>
+  </nz-card>
+</div>
 
+<div *ngIf="tabIndex === 4">
+  <nz-card>
+    <nz-row nzGutter="20">
+      <nz-col nzSpan="12">
+        <h3 class="text-center">Company name</h3>
+        <nz-row nzGutter="12">
+          <nz-col nzSpan="12">
+            <input type="text" nz-input placeholder="Customer address details">
+          </nz-col>
+          <nz-col nzSpan="12">
+            <p>
+              Please provide your Company name as to be applied in the Freightender
+            </p>
+          </nz-col>
+          <nz-col nzSpan="12">
+            <button nz-button nzType="primary">Add logo</button>
+          </nz-col>
+          <nz-col nzSpan="12">
+            <p>
+              Custom company logo If added, image will be displayed in the top-right corner of the ControlRoom to both
+              participants and colleagues
+            </p>
+          </nz-col>
+        </nz-row>
+      </nz-col>
+      <nz-col nzSpan="12">
+        <h3 class="text-center">Customer address details</h3>
+        <nz-row [nzGutter]="[12, 12]">
+          <nz-col nzSpan="15">
+            <input type="text" nz-input placeholder="Street">
+          </nz-col>
+          <nz-col nzSpan="12">
+            <input type="text" nz-input placeholder="City">
+          </nz-col>
+          <nz-col nzSpan="12">
+            <input type="text" nz-input placeholder="Country">
+          </nz-col>
+          <nz-col nzSpan="12">
+            <input type="text" nz-input placeholder="Postal code">
+          </nz-col>
+          <nz-col nzSpan="12">
+            <input type="text" nz-input placeholder="State/province">
+          </nz-col>
+        </nz-row>
+      </nz-col>
+    </nz-row>
+  </nz-card>
+
+  <nz-card nzTitle="Invoicing address details">
+    <nz-row [nzGutter]="[12, 12]">
+      <nz-col nzSpan="8">
+        <input nz-input placeholder="Invoice entity (Bill-to)">
+      </nz-col>
+      <nz-col nzSpan="8">
+        <input nz-input placeholder="Email invoice to admin@admin.com">
+      </nz-col>
+      <nz-col nzSpan="8">
+        <nz-select nzPlaceHolder="Invoice currency"></nz-select>
+      </nz-col>
+      <nz-col nzSpan="8">
+        <input nz-input placeholder="Street">
+      </nz-col>
+      <nz-col>
+        <input nz-input placeholder="City">
+      </nz-col>
+      <nz-col>
+        <input nz-input placeholder="Postal code">
+      </nz-col>
+      <nz-col>
+        <input nz-input placeholder="Country">
+      </nz-col>
+      <nz-col>
+        <input nz-input placeholder="State">
+      </nz-col>
+      <nz-col>
+        <input nz-input placeholder="State/Province">
+      </nz-col>
+      <nz-col>
+        <input nz-input placeholder="VAT">
+      </nz-col>
+      <nz-col>
+        <input nz-input placeholder="PO#">
+      </nz-col>
+    </nz-row>
+  </nz-card>
+</div>
+
+<div *ngIf="tabIndex === 5">
+  <nz-card nzTitle="PLS GPM Integration">
+    <nz-row nzGutter="12">
+      <nz-col nzSpan="12">
+        <input nz-input placeholder="Username" class="mw-265">
+        <br>
+        <input nz-input placeholder="Password" class="mw-265">
+      </nz-col>
+      <nz-col nzSpan="12">
+        <p>
+          Below credentials are used to fetch rates from the Portrix GPM service to pre-fill rate card in draft and/or
+          launched RFQs
+        </p>
+      </nz-col>
+    </nz-row>
+  </nz-card>
+
+  <nz-card style="margin-top: 20px">
+    <nz-row [nzGutter]="[12, 12]">
+      <nz-col nzSpan="6"><h3>Equipments</h3></nz-col>
+      <nz-col nzSpan="18">
+           Below credentials are used to fetch rates from the Portrix GPM service to pre-fill rate
+           card in draft and/or launched RFQs
+      </nz-col>
+      <nz-col nzSpan="6">
+        <input type="text" nz-input placeholder="20GP">
+      </nz-col>
+      <nz-col nzSpan="12">
+        <input type="text" nz-input placeholder="#20ft">
+      </nz-col>
+      <nz-col nzSpan="6">
+        <button nz-button >Delete</button>
+      </nz-col>
+      <nz-col nzSpan="6">
+        <input type="text" nz-input placeholder="20GP">
+      </nz-col>
+      <nz-col nzSpan="12">
+        <input type="text" nz-input placeholder="#20ft">
+      </nz-col>
+      <nz-col nzSpan="6">
+        <button nz-button >Delete</button>
+      </nz-col>
+      <nz-col nzSpan="6">
+        <input type="text" nz-input placeholder="20GP">
+      </nz-col>
+      <nz-col nzSpan="12">
+        <input type="text" nz-input placeholder="#20ft">
+      </nz-col>
+      <nz-col nzSpan="6">
+        <button nz-button >Delete</button>
+      </nz-col>
+    </nz-row>
+
+  </nz-card>
 </div>
