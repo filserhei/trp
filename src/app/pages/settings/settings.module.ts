@@ -12,12 +12,14 @@ import {NzSelectModule} from "ng-zorro-antd/select";
 import {NzTableModule} from "ng-zorro-antd/table";
 import {NzCardModule} from "ng-zorro-antd/card";
 import {NzSwitchModule} from "ng-zorro-antd/switch";
+import { PortsComponent } from './ports/ports.component';
 
 
 
 @NgModule({
   declarations: [
-    CompanySettingsComponent
+    CompanySettingsComponent,
+    PortsComponent
   ],
   imports: [
     CommonModule,

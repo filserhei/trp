@@ -1,0 +1,32 @@
+<h2 class="text-center">Ports database</h2>
+<nz-tabset [(nzSelectedIndex)]="tabIndex">
+  <nz-tab nzTitle="Ocean"></nz-tab>
+  <nz-tab nzTitle="Air"></nz-tab>
+</nz-tabset>
+
+<div *ngIf="tabIndex === 0 || tabIndex === 1">
+  <nz-table nzBordered [nzData]="tabIndex === 0 ? tableOcean : tableAir" #table>
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Location</th>
+        <th>Port</th>
+        <th>CFS</th>
+        <th>Terminal</th>
+        <th>Cluster</th>
+        <th>Comments</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of table.data">
+        <td>{{p.country}}</td>
+        <td>{{p.location}}</td>
+        <td>{{p.port}}</td>
+        <td>{{p.cfs}}</td>
+        <td>{{p.terminal}}</td>
+        <td>{{p.cluster}}</td>
+        <td>{{p.comments}}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
