@@ -15,7 +15,7 @@ export interface Participant {
   styleUrls: ['./company-settings.component.scss']
 })
 export class CompanySettingsComponent implements OnInit {
-  tabIndex = 5;
+  tabIndex = 0;
   members: TeamMember[] = [];
   participants: Participant[] = [];
   periods: number[] = [];
