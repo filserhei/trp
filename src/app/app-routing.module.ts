@@ -6,7 +6,8 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', component: StartPageComponent },
   { path: 'create', loadChildren: () => import('./pages/create-tender/create-tender.module').then(m => m.CreateTenderModule) },
   { path: 'find', loadChildren: () => import('./pages/find-tender/find-tender.module').then(m => m.FindTenderModule) },
-  { path: 'settings', loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsModule) }
+  { path: 'settings', loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsModule) },
+  { path: 'opportunity', loadChildren: () => import('./pages/opportunity/opportunity.module').then(m => m.OpportunityModule) }
 ];
 
 @NgModule({
