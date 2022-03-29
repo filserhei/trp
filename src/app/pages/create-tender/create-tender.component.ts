@@ -14,6 +14,12 @@ export class CreateTenderComponent implements OnInit {
     'Incoterms', 'Dangerous goods', 'Temperature controlled', 'Volume(kg, pound)', 'Rate'
   ];
   fakeData: string[][] = [];
+  fakeParticipantData: any[] = [
+    {region: "UZ", origin: '--', mainFreight: '--', destination: '--'},
+    {region: "DE", origin: '--', mainFreight: '--', destination: '--'},
+    {region: "USA", origin: '--', mainFreight: '--', destination: '--'},
+    {region: "PL", origin: '--', mainFreight: '--', destination: '--'},
+  ];
   tenderForm: FormGroup = new FormGroup({
     title: new FormControl('', [Validators.required], []),
     customer: new FormControl('', [Validators.required], []),
@@ -21,6 +27,7 @@ export class CreateTenderComponent implements OnInit {
     reportingCurrency: new FormControl('', [Validators.required], []),
     industry: new FormControl('', [Validators.required], []),
   });
+  members: any[] = [{name: 'Bob Smith'}, {name: 'Bob Smith'},{name: 'Bob Smith'},{name: 'Bob Smith'},];
 
   constructor(private fb: FormBuilder) { }
 

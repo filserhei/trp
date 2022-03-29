@@ -11,6 +11,8 @@ import {NzSelectModule} from "ng-zorro-antd/select";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzUploadModule} from "ng-zorro-antd/upload";
 import {NzTableModule} from "ng-zorro-antd/table";
+import {NzSwitchModule} from "ng-zorro-antd/switch";
+import {NzDropDownModule} from "ng-zorro-antd/dropdown";
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import {NzTableModule} from "ng-zorro-antd/table";
     NzSelectModule,
     NzButtonModule,
     NzUploadModule,
-    NzTableModule
+    NzTableModule,
+    NzSwitchModule,
+    NzDropDownModule
   ]
 })
 export class CreateTenderModule { }

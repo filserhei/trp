@@ -1,11 +1,11 @@
 <header>
   <nz-steps nzLabelPlacement="vertical" [nzCurrent]="stepIndex" >
-    <nz-step nzTitle="Step 1" [nzStatus]="'error'"></nz-step>
-    <nz-step nzTitle="Step 2" [nzStatus]="'error'"></nz-step>
-    <nz-step nzTitle="Step 3" [nzStatus]="'finish'"></nz-step>
-    <nz-step nzTitle="Step 4" [nzStatus]="'process'"></nz-step>
-    <nz-step nzTitle="Step 5" [nzStatus]="'wait'"></nz-step>
-    <nz-step nzTitle="Step 6" [nzStatus]="getStepStatus(5)"></nz-step>
+    <nz-step nzTitle="Step 1"></nz-step>
+    <nz-step nzTitle="Step 2"></nz-step>
+    <nz-step nzTitle="Step 3"></nz-step>
+    <nz-step nzTitle="Step 4"></nz-step>
+    <nz-step nzTitle="Step 5" ></nz-step>
+    <nz-step nzTitle="Step 6" ></nz-step>
     <nz-step nzTitle="Step 7"></nz-step>
     <nz-step nzTitle="Step 8"></nz-step>
   </nz-steps>
@@ -111,8 +111,56 @@
       </tbody>
     </nz-table>
   </div>
-  <div *ngIf="stepIndex === 4"></div>
-  <div *ngIf="stepIndex === 5"></div>
+  <div *ngIf="stepIndex === 4">
+    <h2>Participants</h2>
+    <nz-table [nzData]="fakeParticipantData" #participants>
+      <thead>
+        <tr>
+          <th>Region</th>
+          <th>Origin</th>
+          <th>Main Freight</th>
+          <th>Destination</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let p of participants.data">
+        <td>{{p.region}}</td>
+        <td>{{p.origin}}</td>
+        <td>{{p.mainFreight}}</td>
+        <td>{{p.destination}}</td>
+
+        <td><button nz-button nzType="link">View/Edit</button></td>
+      </tr>
+      </tbody>
+    </nz-table>
+    <p>Automatically remove read-only scopes, groups and participants
+      <nz-switch style="margin: 16px"></nz-switch>
+    </p>
+  </div>
+  <div *ngIf="stepIndex === 5">
+    <h2>Tender team</h2>
+    <p style="color: red">Only one person can have Ownership and will be set as Tender Owner after launch.</p>
+    <nz-table nzBordered>
+      <thead>
+        <tr>
+          <th>First Last Name</th>
+          <th>First Last Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of members">
+          <td>{{m.name}}</td>
+          <td><nz-select nzPlaceHolder="Role" nzAllowClear nzMode="multiple" class="full-width">
+            <nz-option [nzValue]="1" nzLabel="Ownership"></nz-option>
+            <nz-option [nzValue]="2" nzLabel="Readonly"></nz-option>
+            <nz-option [nzValue]="3" nzLabel="Editing rights"></nz-option>
+          </nz-select></td>
+        </tr>
+
+      </tbody>
+    </nz-table>
+  </div>
   <div *ngIf="stepIndex === 6"></div>
   <div *ngIf="stepIndex === 7"></div>
 </main>
