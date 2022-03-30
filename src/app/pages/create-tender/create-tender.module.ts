@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CreateTenderRoutingModule } from './create-tender-routing.module';
 import {CreateTenderComponent} from "./create-tender.component";
 import {NzStepsModule} from "ng-zorro-antd/steps";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NzFormModule} from "ng-zorro-antd/form";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {NzSelectModule} from "ng-zorro-antd/select";
@@ -31,7 +31,8 @@ import {NzDropDownModule} from "ng-zorro-antd/dropdown";
     NzUploadModule,
     NzTableModule,
     NzSwitchModule,
-    NzDropDownModule
+    NzDropDownModule,
+    FormsModule
   ]
 })
 export class CreateTenderModule { }

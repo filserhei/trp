@@ -28,6 +28,7 @@ export class CreateTenderComponent implements OnInit {
     industry: new FormControl('', [Validators.required], []),
   });
   members: any[] = [{name: 'Bob Smith'}, {name: 'Bob Smith'},{name: 'Bob Smith'},{name: 'Bob Smith'},];
+  lines: any[] = [{firstname: '', lastname: '', email: ''}];
 
   constructor(private fb: FormBuilder) { }
 
@@ -54,5 +55,9 @@ export class CreateTenderComponent implements OnInit {
 
   getStepStatus(number: number): string {
     return 'wait';
+  }
+
+  addLine(): void {
+    this.lines.push({firstname: '', lastname: '', email: ''});
   }
 }

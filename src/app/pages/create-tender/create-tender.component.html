@@ -141,7 +141,7 @@
   <div *ngIf="stepIndex === 5">
     <h2>Tender team</h2>
     <p style="color: red">Only one person can have Ownership and will be set as Tender Owner after launch.</p>
-    <nz-table nzBordered>
+    <nz-table nzBordered [nzData]="members" #membersTable>
       <thead>
         <tr>
           <th>First Last Name</th>
@@ -149,19 +149,41 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let m of members">
+        <tr *ngFor="let m of membersTable.data">
           <td>{{m.name}}</td>
           <td><nz-select nzPlaceHolder="Role" nzAllowClear nzMode="multiple" class="full-width">
-            <nz-option [nzValue]="1" nzLabel="Ownership"></nz-option>
-            <nz-option [nzValue]="2" nzLabel="Readonly"></nz-option>
-            <nz-option [nzValue]="3" nzLabel="Editing rights"></nz-option>
+            <nz-option nzLabel="Ownership" nzValue="1"></nz-option>
+            <nz-option nzLabel="Readonly" nzValue="2"></nz-option>
+            <nz-option nzLabel="Editing rights" nzValue="3"></nz-option>
           </nz-select></td>
         </tr>
 
       </tbody>
     </nz-table>
+
+    <p>
+      Add optional emails of sales staff. These will have read-only access in the ControlRoom regardless of the
+      account role. For unknown emails, new accounts will be created with Tender Assistant role.
+    </p>
+    <nz-row [nzGutter]="[16, 16]" *ngFor="let line of lines">
+      <nz-col nzSpan="8">
+        <input nz-input placeholder="First Name" [(ngModel)]="line.firstname">
+      </nz-col>
+      <nz-col nzSpan="8">
+        <input nz-input placeholder="Last Name" [(ngModel)]="line.lastname">
+      </nz-col>
+      <nz-col nzSpan="8">
+        <input nz-input placeholder="Email" [(ngModel)]="line.email">
+      </nz-col>
+    </nz-row>
+    <div class="btns">
+      <button nz-button (click)="addLine()">+Add</button>
+      <button nz-button nzType="primary">Invite</button>
+    </div>
   </div>
-  <div *ngIf="stepIndex === 6"></div>
+  <div *ngIf="stepIndex === 6">
+    <h2>Timelines</h2>
+  </div>
   <div *ngIf="stepIndex === 7"></div>
 </main>
 
