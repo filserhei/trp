@@ -183,8 +183,34 @@
   </div>
   <div *ngIf="stepIndex === 6">
     <h2>Timelines</h2>
+    <nz-row [nzGutter]="[16, 16]">
+      <nz-col nzSpan="10">
+        Round 1 deadline <input type="datetime-local" nz-input>
+      </nz-col>
+      <nz-col nzSpan="4"></nz-col>
+      <nz-col nzSpan="10">
+        Customer deadline <nz-switch></nz-switch> <input type="datetime-local" nz-input
+      >
+      </nz-col>
+      <nz-col nzSpan="24">
+        Validity period <nz-switch></nz-switch>
+      </nz-col>
+      <nz-col nzSpan="10">
+        <input type="datetime-local" nz-input>
+      </nz-col>
+      <nz-col nzSpan="4" class="text-center">
+        To
+      </nz-col>
+      <nz-col nzSpan="10">
+        <input type="datetime-local" nz-input>
+      </nz-col>
+      <nz-col>Automatically extend editing access to not fully quoting participants upon round completion <nz-switch></nz-switch></nz-col>
+    </nz-row>
   </div>
-  <div *ngIf="stepIndex === 7"></div>
+  <div *ngIf="stepIndex === 7">
+    <h2>Notification and communication</h2>
+
+  </div>
 </main>
 
 <footer>
