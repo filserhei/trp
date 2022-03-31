@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TenderSettingsComponent implements OnInit {
   index = 0;
+  tableData: any[] = [{name: 'New announcement', }]
 
   constructor() { }
 

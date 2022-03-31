@@ -6,7 +6,32 @@
       trigger respective locks, zeros/blanks switch locks off. Editing settings here does not affect existing tenders, but
       these are copied into newly created ones where can be managed separately.
     </p>
+    <nz-row nzGutter="16">
+      <nz-col nzSpan="6">Air<input nz-input type="number" min="0"></nz-col>
+      <nz-col nzSpan="6">Sea/FCL<input nz-input type="number" min="0"></nz-col>
+      <nz-col nzSpan="6">Sea/LCL<input nz-input type="number" min="0"></nz-col>
+      <nz-col nzSpan="6">Sea/Consol<input nz-input type="number" min="0"></nz-col>
+    </nz-row>
   </nz-tab>
-  <nz-tab nzTitle="Notification and communication"></nz-tab>
+  <nz-tab nzTitle="Notification and communication">
+    <nz-table nzBordered [nzData]="tableData" #table>
+      <thead>
+      <tr>
+        <th>Tender event</th>
+        <th>In-App</th>
+        <th>Email</th>
+        <th>In-App over email</th>
+        <th>Exclude read-only</th>
+        <th>Recipients</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of table.data">
+          <td>{{a.name}}</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-tab>
 </nz-tabset>
 
