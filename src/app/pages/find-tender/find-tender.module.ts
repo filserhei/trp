@@ -28,6 +28,7 @@ import { TenderDataComponent } from './tender-data/tender-data.component';
 import { TenderProgressComponent } from './tender-progress/tender-progress.component';
 import { TenderSettingsComponent } from './tender-settings/tender-settings.component';
 import {NzTabsModule} from "ng-zorro-antd/tabs";
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -42,6 +43,7 @@ import {NzTabsModule} from "ng-zorro-antd/tabs";
         TenderDataComponent,
         TenderProgressComponent,
         TenderSettingsComponent,
+        DashboardComponent,
 
     ],
     exports: [
