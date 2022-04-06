@@ -1,0 +1,22 @@
+<h2 class="text-center">Internal communication</h2>
+<div style="display:flex; justify-content: space-between">
+  <h3>Conversations</h3>
+  <button nz-button nzType="primary">Create</button>
+</div>
+<nz-tabset>
+  <nz-tab nzTitle="All">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, nemo.</nz-tab>
+  <nz-tab nzTitle="Open"></nz-tab>
+  <nz-tab nzTitle="Draft"></nz-tab>
+  <nz-tab nzTitle="Finished"></nz-tab>
+</nz-tabset>
+
+<div style="display:flex; justify-content: space-between">
+  <h3>Announcements</h3>
+  <button nz-button nzType="primary">Create</button>
+</div>
+<p *ngFor="let announcement of announcements; let i = index;">
+  {{announcement}}
+  <nz-divider></nz-divider>
+</p>
+
+

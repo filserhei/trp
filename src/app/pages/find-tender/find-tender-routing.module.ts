@@ -8,6 +8,8 @@ import {TenderDataComponent} from "./tender-data/tender-data.component";
 import {TenderProgressComponent} from "./tender-progress/tender-progress.component";
 import {TenderSettingsComponent} from "./tender-settings/tender-settings.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {CommunicationsComponent} from "./communications/communications.component";
+import {QaComponent} from "./qa/qa.component";
 
 
 const routes: Routes = [
@@ -18,7 +20,9 @@ const routes: Routes = [
   {path: 'tender/details/:id/data', component: TenderDataComponent},
   {path: 'tender/details/:id/progress', component: TenderProgressComponent},
   {path: 'tender/details/:id/settings', component: TenderSettingsComponent},
-  {path: 'tender/details/:id/dashboards', component: DashboardComponent}
+  {path: 'tender/details/:id/dashboards', component: DashboardComponent},
+  {path: 'tender/details/:id/communication', component: CommunicationsComponent},
+  {path: 'tender/details/:id/qa', component: QaComponent}
 ];
 
 @NgModule({
