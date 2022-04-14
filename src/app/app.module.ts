@@ -31,6 +31,8 @@ import {NzTypographyModule} from "ng-zorro-antd/typography";
 
 // import {FindTenderModule} from "./pages/find-tender/find-tender.module";
 import {NzFormModule} from "ng-zorro-antd/form";
+import {NzPopoverModule} from "ng-zorro-antd/popover";
+import {NzToolTipModule} from "ng-zorro-antd/tooltip";
 // import {CreateTenderModule} from "./pages/create-tender/create-tender.module";
 
 registerLocaleData(en);
@@ -68,7 +70,9 @@ registerLocaleData(en);
     NzTagModule,
     NzTypographyModule,
     NzFormModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NzPopoverModule,
+    NzToolTipModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
