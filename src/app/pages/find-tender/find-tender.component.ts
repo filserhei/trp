@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
-interface Tender {
-  title: 'Tender Title',
+export interface Tender {
+  title: string,
   id: number,
   status: string,
-  transportMode: 'Air',
-  tenderOwner: 'KJH',
-  businessOwner: 'LJHJG',
-  created: '10.10.2010',
-  launched: '10.11.2010',
-  deadline: '30.03.2040',
-  customer: 'Vano',
-  customerDeadline : '30.04.2060'
+  transportMode: string,
+  tenderOwner: string,
+  businessOwner: string,
+  created: string,
+  launched: string,
+  deadline: string,
+  customer: string,
+  customerDeadline : string
 };
 
 @Component({
@@ -23,19 +23,6 @@ interface Tender {
 export class FindTenderComponent implements OnInit {
   allTenders: Tender[] = [];
   filteredTenders: Tender[] = [];
-  tender: Tender = {
-    title: 'Tender Title',
-    id: 44854,
-    status: 'Active',
-    transportMode: 'Air',
-    tenderOwner: 'KJH',
-    businessOwner: 'LJHJG',
-    created: '10.10.2010',
-    launched: '10.11.2010',
-    deadline: '30.03.2040',
-    customer: 'Vano',
-    customerDeadline : '30.04.2060'
-  };
   statuses: string[] = ['Draft', 'Template', 'Open', 'Archived', 'Past deadline', 'Finished', 'Cancelled'];
   filtersVisible = false;
   showFields: {[key: string]: boolean} = {
@@ -46,21 +33,19 @@ export class FindTenderComponent implements OnInit {
   };
   filterStatuses: string[] = [];
 
-  constructor(private router: Router ) { }
+  constructor(private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    for (let i = 0; i < 24; i++) {
-      const tender: Tender = { ...this.tender };
-      tender.status = this.statuses[i % this.statuses.length];
-      this.allTenders.push(tender);
-    }
-    this.filterTenders();
+    this.route.data.subscribe(data => {
+      this.allTenders = data['tenders'];
+      this.filterTenders();
+    });
   }
 
   goToTenderDetails(tenderId: number): void {
     this.router.navigate(['/find/tender/details/' + tenderId]);
   }
-
 
   filterTenders(): void {
     this.filteredTenders = this.filterStatuses.length ? this.allTenders.filter(tender => this.filterStatuses.includes(tender.status)) : this.allTenders;

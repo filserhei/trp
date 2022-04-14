@@ -10,10 +10,11 @@ import {TenderSettingsComponent} from "./tender-settings/tender-settings.compone
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {CommunicationsComponent} from "./communications/communications.component";
 import {QaComponent} from "./qa/qa.component";
+import {TendersResolver} from "../resolvers/tenders.resolver";
 
 
 const routes: Routes = [
-  {path: '', component: FindTenderComponent},
+  {path: '', component: FindTenderComponent, resolve: { tenders: TendersResolver}},
   {path: 'tender/details/:id', component: TenderDetailsComponent},
   {path: 'tender/details/:id/team', component: TenderTeamComponent},
   {path: 'tender/details/:id/quotations', component: QuotationsComponent},
